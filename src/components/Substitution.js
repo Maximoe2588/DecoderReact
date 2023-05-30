@@ -37,6 +37,11 @@ function Substitution() {
   return (
     <div>
       <h2>Substitution Cipher</h2>
+      <p>
+        The Substitution cipher is a method of encryption where each letter in the plaintext is replaced by another
+        letter based on a substitution key. The key is a mapping of each letter in the alphabet to another letter. This
+        cipher can be used for both encoding and decoding messages.
+      </p>
       <label htmlFor="substitution-input">Input:</label>
       <input id="substitution-input" type="text" value={input} onChange={handleInputChange} />
       <label htmlFor="substitution-alphabet">Alphabet:</label>
@@ -50,6 +55,10 @@ function Substitution() {
       <input id="substitution-encode" type="checkbox" checked={encode} onChange={handleEncodeChange} />
       <button onClick={handleSubstitution}>Encode/Decode</button>
       <div>Output: {output}</div>
+      <p>
+        Example: If the input is "HELLO" and the alphabet is "QWERTYUIOPASDFGHJKLZXCVBNM", the encoded output might be
+        "QDWWQ". Decoding the output "QDWWQ" with the same alphabet will give you the original input "HELLO" back.
+      </p>
     </div>
   );
 }
