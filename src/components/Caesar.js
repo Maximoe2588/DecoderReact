@@ -15,18 +15,24 @@ function Caesar() {
     setShift(parseInt(e.target.value));
   };
 
-  const handleEncodeChange = (e) => {
-    setEncode(e.target.checked);
-  };
-
-  const handleCaesar = () => {
+  const handleEncode = () => {
     if (!shift || shift < -25 || shift > 25) {
       setOutput('Invalid shift value');
       return;
     }
 
-    const encoded = caesar(input, shift, encode);
+    const encoded = caesar(input, shift, true);
     setOutput(encoded);
+  };
+
+  const handleDecode = () => {
+    if (!shift || shift < -25 || shift > 25) {
+      setOutput('Invalid shift value');
+      return;
+    }
+
+    const decoded = caesar(input, shift, false);
+    setOutput(decoded);
   };
 
   return (
@@ -41,9 +47,8 @@ function Caesar() {
       <input id="caesar-input" type="text" value={input} onChange={handleInputChange} />
       <label htmlFor="caesar-shift">Shift:</label>
       <input id="caesar-shift" type="number" value={shift} onChange={handleShiftChange} />
-      <label htmlFor="caesar-encode">Encode:</label>
-      <input id="caesar-encode" type="checkbox" checked={encode} onChange={handleEncodeChange} />
-      <button onClick={handleCaesar}>Encode/Decode</button>
+      <button onClick={handleEncode}>Encode</button>
+      <button onClick={handleDecode}>Decode</button>
       <div>Output: {output}</div>
       <p>
         Example: If the input is "HELLO" and the shift is 3, the encoded output will be "KHOOR".
