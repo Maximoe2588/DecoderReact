@@ -8,15 +8,25 @@ function Polybius() {
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
+    updateOutput(e.target.value, encode);
   };
 
-  const handleEncodeChange = (e) => {
-    setEncode(e.target.checked);
+  const handleEncode = () => {
+    updateOutput(input, true);
   };
 
-  const handlePolybius = () => {
-    const encoded = polybius(input, encode);
-    setOutput(encoded);
+  const handleDecode = () => {
+    updateOutput(input, false);
+  };
+
+  const updateOutput = (input, encode) => {
+    if (!input) {
+      setOutput('');
+      return;
+    }
+
+    const updatedOutput = polybius(input, encode);
+    setOutput(updatedOutput);
   };
 
   return (
@@ -29,9 +39,8 @@ function Polybius() {
       </p>
       <label htmlFor="polybius-input">Input:</label>
       <input id="polybius-input" type="text" value={input} onChange={handleInputChange} />
-      <label htmlFor="polybius-encode">Encode:</label>
-      <input id="polybius-encode" type="checkbox" checked={encode} onChange={handleEncodeChange} />
-      <button onClick={handlePolybius}>Encode/Decode</button>
+      <button onClick={handleEncode}>Encode</button>
+      <button onClick={handleDecode}>Decode</button>
       <div>Output: {output}</div>
       <p>
         Example: If the input is "HELLO", the encoded output might be "32441544". Decoding the output "32441544"

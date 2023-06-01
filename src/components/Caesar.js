@@ -9,30 +9,32 @@ function Caesar() {
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
+    updateOutput(e.target.value, shift, encode);
   };
 
   const handleShiftChange = (e) => {
     setShift(parseInt(e.target.value));
+    updateOutput(input, parseInt(e.target.value), encode);
   };
 
-  const handleEncode = () => {
+  const handleEncodeChange = (e) => {
+    setEncode(e.target.checked);
+    updateOutput(input, shift, e.target.checked);
+  };
+
+  const updateOutput = (input, shift, encode) => {
+
+    if (shift === 0) {
+      return input;
+    }
+
     if (!shift || shift < -25 || shift > 25) {
       setOutput('Invalid shift value');
       return;
     }
 
-    const encoded = caesar(input, shift, true);
-    setOutput(encoded);
-  };
-
-  const handleDecode = () => {
-    if (!shift || shift < -25 || shift > 25) {
-      setOutput('Invalid shift value');
-      return;
-    }
-
-    const decoded = caesar(input, shift, false);
-    setOutput(decoded);
+    const updatedOutput = caesar(input, shift, encode);
+    setOutput(updatedOutput);
   };
 
   return (
@@ -47,8 +49,8 @@ function Caesar() {
       <input id="caesar-input" type="text" value={input} onChange={handleInputChange} />
       <label htmlFor="caesar-shift">Shift:</label>
       <input id="caesar-shift" type="number" value={shift} onChange={handleShiftChange} />
-      <button onClick={handleEncode}>Encode</button>
-      <button onClick={handleDecode}>Decode</button>
+      <label htmlFor="caesar-encode">Encode:</label>
+      <input id="caesar-encode" type="checkbox" checked={encode} onChange={handleEncodeChange} />
       <div>Output: {output}</div>
       <p>
         Example: If the input is "HELLO" and the shift is 3, the encoded output will be "KHOOR".
