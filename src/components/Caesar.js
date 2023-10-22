@@ -38,19 +38,25 @@ function Caesar() {
   };
 
   return (
-    <div>
+    <div className="caesar-container">
       <h2>Caesar Cipher</h2>
       <p>
         The Caesar cipher is a substitution cipher where each letter in the plaintext is shifted a certain number of
         positions down or up the alphabet. It is named after Julius Caesar, who is said to have used this encryption
         method to communicate with his officials.
       </p>
+      <div className="input-group">
       <label htmlFor="caesar-input">Input:</label>
       <input id="caesar-input" type="text" value={input} onChange={handleInputChange} />
+      </div>
+      <div className="input-group">
       <label htmlFor="caesar-shift">Shift:</label>
       <input id="caesar-shift" type="number" value={shift} onChange={handleShiftChange} />
+      </div>
+      <div className="input-group">
       <label htmlFor="caesar-encode">Encode:</label>
       <input id="caesar-encode" type="checkbox" checked={encode} onChange={handleEncodeChange} />
+      </div>
       <div>Output: {output}</div>
       <p>
         Example: If the input is "HELLO" and the shift is 3, the encoded output will be "KHOOR".
