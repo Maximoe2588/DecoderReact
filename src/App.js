@@ -23,9 +23,9 @@ function App() {
            
         </nav>
         <Routes>
-          <Route path="/caesar" element={<Caesar />} />
-          <Route path="/polybius" element={<Polybius />} />
-          <Route path="/substitution" element={<Substitution />} />
+          <Route path="/caesar" element={<div className="cipher-container"><Caesar /></div>} />
+          <Route path="/polybius" element={<div className="cipher-container"><Polybius /></div>} />
+          <Route path="/substitution" element={<div className="cipher-container"><Substitution /></div>} />
         </Routes>
       </div>
     </Router>
