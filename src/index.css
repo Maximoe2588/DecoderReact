@@ -180,7 +180,13 @@ button + button {
 }
 
 .output-container {
-  margin-top: 20px; 
+  font-size: 1.2em; /* Larger font size */
+  color: #007bff; /* Color that stands out */
+  background-color: #e6e6e6; /* Light background for contrast */
+  padding: 15px;
+  margin-top: 20px;
+  border: 2px dashed #007bff; /* Stylish border */
+  border-radius: 10px; /* Rounded corners */
 }
 
 .example-container {

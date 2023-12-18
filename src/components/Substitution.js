@@ -84,6 +84,7 @@ function Substitution() {
   const [alphabet, setAlphabet] = useState('');
   const [encode, setEncode] = useState(true);
   const [output, setOutput] = useState('');
+  const [activeButton, setActiveButton] = useState('');
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -135,9 +136,9 @@ function Substitution() {
         value={alphabet}
         onChange={handleAlphabetChange}
       />
-      <button onClick={handleEncode}>Encode</button>
-      <button onClick={handleDecode}>Decode</button>
-      <div>Output: {output}</div>
+      <button className={activeButton === 'encode' ? 'active' : ''} onClick={handleEncode}>Encode</button>
+      <button className={activeButton === 'decode' ? 'active' : ''} onClick={handleDecode}>Decode</button>
+      <div className="output-container">Output: {output}</div>
       <p className="example-container">
         Example: If the input is "HELLO" and the alphabet is "QWERTYUIOPASDFGHJKLZXCVBNM", the encoded output might be
         "QDWWQ". Decoding the output "QDWWQ" with the same alphabet will give you the original input "HELLO" back.

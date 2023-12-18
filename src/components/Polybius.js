@@ -5,6 +5,7 @@ function Polybius() {
   const [input, setInput] = useState('');
   const [encode, setEncode] = useState(true);
   const [output, setOutput] = useState('');
+  const [activeButton, setActiveButton] = useState('');
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -39,8 +40,8 @@ function Polybius() {
       </p>
       <label htmlFor="polybius-input">Input:</label>
       <input id="polybius-input" type="text" value={input} onChange={handleInputChange} />
-      <button onClick={handleEncode}>Encode</button>
-      <button onClick={handleDecode}>Decode</button>
+      <button className={activeButton === 'encode' ? 'active' : ''} onClick={handleEncode}>Encode</button>
+      <button className={activeButton === 'decode' ? 'active' : ''} onClick={handleDecode}>Decode</button>
       <div className="output-container">Output: {output}</div>
       <p className="example-container">
         Example: If the input is "HELLO", the encoded output might be "32441544". Decoding the output "32441544"

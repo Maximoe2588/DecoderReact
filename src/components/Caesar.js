@@ -7,6 +7,8 @@ function Caesar() {
   const [encode, setEncode] = useState(true);
   const [output, setOutput] = useState('');
 
+  const [activeButton, setActiveButton] = useState('');
+
   const handleInputChange = (e) => {
     setInput(e.target.value);
     updateOutput(e.target.value, shift, encode);
@@ -57,7 +59,7 @@ function Caesar() {
       <label htmlFor="caesar-encode">Encode:</label>
       <input id="caesar-encode" type="checkbox" checked={encode} onChange={handleEncodeChange} />
       </div>
-      <div>Output: {output}</div>
+      <div className="output-container">Output: {output}</div>
       <p className="example-container">
         Example: If the input is "HELLO" and the shift is 3, the encoded output will be "KHOOR".
         Decoding the output "KHOOR" with a shift of 3 will give you the original input "HELLO" back.
