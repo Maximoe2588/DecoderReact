@@ -138,7 +138,7 @@ function Substitution() {
       <button onClick={handleEncode}>Encode</button>
       <button onClick={handleDecode}>Decode</button>
       <div>Output: {output}</div>
-      <p>
+      <p className="example-container">
         Example: If the input is "HELLO" and the alphabet is "QWERTYUIOPASDFGHJKLZXCVBNM", the encoded output might be
         "QDWWQ". Decoding the output "QDWWQ" with the same alphabet will give you the original input "HELLO" back.
       </p>

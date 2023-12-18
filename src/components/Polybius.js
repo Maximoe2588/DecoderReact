@@ -41,8 +41,8 @@ function Polybius() {
       <input id="polybius-input" type="text" value={input} onChange={handleInputChange} />
       <button onClick={handleEncode}>Encode</button>
       <button onClick={handleDecode}>Decode</button>
-      <div>Output: {output}</div>
-      <p>
+      <div className="output-container">Output: {output}</div>
+      <p className="example-container">
         Example: If the input is "HELLO", the encoded output might be "32441544". Decoding the output "32441544"
         will give you the original input "HELLO" back.
       </p>

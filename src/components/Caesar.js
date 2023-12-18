@@ -58,7 +58,7 @@ function Caesar() {
       <input id="caesar-encode" type="checkbox" checked={encode} onChange={handleEncodeChange} />
       </div>
       <div>Output: {output}</div>
-      <p>
+      <p className="example-container">
         Example: If the input is "HELLO" and the shift is 3, the encoded output will be "KHOOR".
         Decoding the output "KHOOR" with a shift of 3 will give you the original input "HELLO" back.
       </p>
